@@ -1,0 +1,16 @@
+# Blender MTL File: 'untitled.blend'
+# Material Count: 1
+
+newmtl None
+Ns 32
+Tr 0
+Tf 1 1 1
+Ka 0.3451 0.5647 0.8824
+Kd 0.3451 0.5647 0.8824
+Ks 0.3500 0.3500 0.3500
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+
+map_Kd rif_m4a1.tga
