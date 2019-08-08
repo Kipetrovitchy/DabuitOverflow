@@ -53,15 +53,15 @@ namespace UI
         return *this;
     }
 
-    BaseUIComponent& Image::render(Core::Maths::Mat transformParent) noexcept
+    BaseUIComponent& Image::render(Core::Maths::Mat viewProj) noexcept
     {
         //We don't render the object and its children if it is disabled
         if (!_enabled)
             return *this;
         
-        transformParent = transformParent * _transform.TRS();
+        viewProj = viewProj * _transform.globalTRS();
         _shader->use();
-        _shader->setMatrix4("projection", transformParent.elements);
+        _shader->setMatrix4("projection", viewProj.elements);
         setColorShader(_shader);
         glBindVertexArray(_VAO);
         
@@ -69,9 +69,7 @@ namespace UI
         _texture->bind(0);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _EBO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-        _texture->unbind();
-
-        renderChildren(transformParent);
+        _texture->unbind();;
 
         return *this;
     }

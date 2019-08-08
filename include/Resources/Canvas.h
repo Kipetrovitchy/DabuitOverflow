@@ -15,6 +15,7 @@ namespace Resources
     #pragma region typedefs
     typedef UI::BaseUIComponent         BaseUIComponent;
     typedef Core::Maths::Mat            Mat;
+    typedef Core::Maths::Vec3           Vec3;
     typedef Physics::Transform2D        Transform2D;
     typedef Game::Inputs::InputModule   InputModule;
     #pragma endregion
@@ -45,8 +46,7 @@ namespace Resources
             BaseUIComponent* addChild(BaseUIComponent* child) noexcept;
 
             Canvas& update(const InputModule& module);
-            //for now this is useless because we don't have any interactable elemtents
-            Canvas& render(const Mat& transformParent) noexcept;
+            Canvas& render(const Mat& viewProj, Vec3 camPos) noexcept;
             Canvas& updateChildrenTransform() noexcept;
             #pragma endregion
 
@@ -54,7 +54,7 @@ namespace Resources
             inline std::vector<BaseUIComponent*> children() const { return _children; }
             #pragma endregion
 
-            static inline Transform2D& windowTransform() { return s_windowTransform; }
+            static inline Transform2D* windowTransform() { return &s_windowTransform; }
     };
 } // namespace Resources
 

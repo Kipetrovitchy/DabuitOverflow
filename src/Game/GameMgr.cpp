@@ -67,8 +67,8 @@ namespace Game
 
 	bool GameMgr::init(uint width, uint height)
 	{
-		Resources::Canvas::windowTransform().setWidth(width);
-		Resources::Canvas::windowTransform().setHeight(height);
+		Resources::Canvas::windowTransform()->setWidth(width);
+		Resources::Canvas::windowTransform()->setHeight(height);
 		glEnable(GL_DEPTH_TEST);
 		glEnable(GL_ALPHA_TEST);
 		glAlphaFunc(GL_LESS, 1);
@@ -289,7 +289,7 @@ namespace Game
 		_graphScene->draw(_camera->getViewProj(), _camera->position());
 
 		glDepthRangef(0.f, 0.01f);
-		_graphCanvas->render(_cameraUI->getViewProj());
+		_graphCanvas->render(_cameraUI->getViewProj(), _cameraUI->position());
 
 		if (_inputs->module().cancel() && !_cancelBounce)
 		{
@@ -345,7 +345,7 @@ namespace Game
 		_graphScene->draw(_camera->getViewProj(), _camera->position());
 
 		glDepthRangef(0.f, 0.01f);
-		_graphCanvas->render(_cameraUI->getViewProj());
+		_graphCanvas->render(_cameraUI->getViewProj(), _cameraUI->position());
 
 		if (_inputs->module().cancel() && !_cancelBounce)
 		{
@@ -366,8 +366,8 @@ namespace Game
 		_camera->updateSize(width, height);
 		_cameraUI->updateSize(width, height);
 
-		Resources::Canvas::windowTransform().setWidth(width);
-		Resources::Canvas::windowTransform().setHeight(height);
+		Resources::Canvas::windowTransform()->setWidth(width);
+		Resources::Canvas::windowTransform()->setHeight(height);
 		_graphCanvas->resizeCanvas();
 	}
 }

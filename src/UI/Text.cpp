@@ -23,6 +23,7 @@ namespace UI
         _text { t._text },
         _font { t._font }
     {
+        _isOpaque = false;
         initBuffers();
         resetGLBuffers();
     }
@@ -36,6 +37,7 @@ namespace UI
         _font { font },
         _shader { shader }
     {
+        _isOpaque = false;
         initBuffers();
         resetGLBuffers();
     }
@@ -53,19 +55,19 @@ namespace UI
     #pragma endregion
 
     #pragma region Methods
-    BaseUIComponent& Text::render(Mat transformParent) noexcept
+    BaseUIComponent& Text::render(Mat viewProj) noexcept
     {
         //We don't render the object and its children if it is disabled
         if (!_enabled)
             return *this;
 
-        transformParent = transformParent * _transform.TRS();
+        viewProj = viewProj * _transform.globalTRS();
         if (!_font)
             return *this;
         
         //Set the value for the shader
         _shader->use();
-        _shader->setMatrix4("projection", transformParent.elements);
+        _shader->setMatrix4("projection", viewProj.elements);
         setColorShader(_shader);
 
         glActiveTexture(GL_TEXTURE0);
@@ -84,8 +86,6 @@ namespace UI
         //unbind the texture and the VAO
         glBindTexture(GL_TEXTURE_2D, 0);
         glBindVertexArray(0);
-
-        renderChildren(transformParent);
 
         return *this;
     }

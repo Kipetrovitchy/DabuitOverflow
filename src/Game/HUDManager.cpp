@@ -139,13 +139,13 @@ namespace Game
 		UI::Button* options = new UI::Button(mgr->getTexture(BUTTON_IMG),
 										   mgr->getShader(IMG_VERTEX,
 										   					   IMG_FRAGMENT),
-										   mgr->getFont(  TEXT_FONT),
+										   mgr->getFont(TEXT_FONT),
 										   mgr->getShader(TEXT_VERTEX,
 										                       TEXT_FRAGMENT));
 		options->transform().setAnchor(UI::EAnchor::MIDLEFT);
 		options->transform().setAnchoredPosition({200, -100, 0});
 		options->setWidth(200).setHeight(75);
-		options->text()->text() = L"Options";
+		options->text()->text() = L"Optiosdsfsd.lkfjns";
 		options->text()->textScale() = 0.25f;
 		options->text()->update();
 		options->addListener([g = game]() { g->goToOptionsMenu(); });
@@ -164,10 +164,10 @@ namespace Game
 		quit->text()->update();
 		quit->addListener([g = game]() { g->quit(); });
 
+		mainMenu->addChild(options);
 		mainMenu->addChild(title);
 		mainMenu->addChild(newGame);
 		mainMenu->addChild(_loadGame);
-		mainMenu->addChild(options);
 		mainMenu->addChild(quit);
 
 		_johan.init(mgr, mainMenu);

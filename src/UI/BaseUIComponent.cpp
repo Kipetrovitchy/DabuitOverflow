@@ -68,18 +68,37 @@ namespace UI
         return *this;
     }
 
-    BaseUIComponent& BaseUIComponent::render(Mat transformParent) noexcept
+    BaseUIComponent& BaseUIComponent::render(Mat viewProj) noexcept
     {
         //We don't render the object and its children if it is disabled
         if (!_enabled)
             return *this;
 
-        transformParent = transformParent * _transform.TRS();
-        
-        renderChildren(transformParent);
+        (void)viewProj;
 
         return *this;
     }
+    BaseUIComponent& BaseUIComponent::sortPreRender(Vec3 camPos, Vec3 parentPos, 
+    std::list<BaseUIComponent*>& opaques, std::map<float, BaseUIComponent*>& translucents) noexcept
+    {
+        if (!_enabled)
+            return *this;
+
+        Vec3 globalPos { globalPosition(parentPos) };
+
+        if (_isOpaque)
+            opaques.push_back(this);
+        else
+            translucents.emplace((globalPos - camPos).length(), this);
+
+        for (auto it = _children.begin(); it != _children.end(); ++it)
+        {
+            if (*it)
+                (*it)->sortPreRender(camPos, globalPos, opaques, translucents);
+        }
+
+        return *this;
+    }            
     #pragma endregion
 
     #pragma region Accessors
@@ -111,19 +130,6 @@ namespace UI
         return *this;
     }
 
-    BaseUIComponent& BaseUIComponent::renderChildren(const Mat& transform) noexcept
-    {
-        for (auto it = _children.begin(); it != _children.end(); ++it)
-        {
-            if (*it)
-            {
-                (*it)->render(transform);
-            }
-        }
-
-        return *this;
-    }
-
     BaseUIComponent& BaseUIComponent::updateChildren(const Mat& transform,
                                                      const InputModule& module) noexcept
     {
@@ -136,6 +142,11 @@ namespace UI
         }
 
         return *this;
+    }
+
+    Vec3 BaseUIComponent::globalPosition(Vec3 parentPos)
+    {
+        return _transform.position() + parentPos;
     }
     #pragma endregion
 } // namespace UI

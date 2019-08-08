@@ -124,8 +124,8 @@ namespace UI
         
         _image->transform().setAnchoredPosition({0, 0, -.9f});
         _text->transform().setAnchoredPosition({0, 0, -1.f});
-        addChild(_text);
         addChild(_image);
+        addChild(_text);
         _targetsColor.push_back(_image);
 
         return *this;
@@ -228,7 +228,7 @@ namespace UI
         //Place the hitbox. Tweak with the y value because the mouse position is 0,0
         //in bot left and the ui component's position are in 0,0 for topleft;
         area.origin.o = transform * Vec3::zero;
-        area.origin.o.y += Resources::Canvas::windowTransform().height() / 2.f;
+        area.origin.o.y += Resources::Canvas::windowTransform()->height() / 2.f;
 
         //Create the rotation matrix for the quad axis
         Mat rot = Physics::Transform::createEulerRotation(_transform.rotation());

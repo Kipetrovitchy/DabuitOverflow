@@ -37,7 +37,7 @@ namespace UI
     
             #pragma region Methods
             Image& init(Resources::Texture* texture, Resources::Shader* shader) noexcept;
-            BaseUIComponent& render(Core::Maths::Mat transformParent)           noexcept;
+            BaseUIComponent& render(Core::Maths::Mat viewProj)                  noexcept;
             #pragma endregion
 
             #pragma region Accesssors

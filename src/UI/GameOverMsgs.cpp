@@ -62,8 +62,8 @@ namespace UI
         _bg = new Image(mgr->getTexture("./resources/bg.png"),
                         mgr->getShader( "./resources/Shaders/image.vs",
                                         "./resources/Shaders/image.fs"));
-        _bg->setWidth(Canvas::windowTransform().width());
-        _bg->setHeight(Canvas::windowTransform().height());
+        _bg->setWidth(Canvas::windowTransform()->width());
+        _bg->setHeight(Canvas::windowTransform()->height());
         _bg->color() = Vec4 { 0.f, 0.f, 0.f, 0.f};
         _bg->transform().setAnchoredPosition({0.f, 0.f, -0.1f});
 
@@ -76,16 +76,16 @@ namespace UI
     GameOverMsgs& GameOverMsgs::showWin() noexcept
     {
         _winMsg->setActive(true);
-        _bg->setWidth(Canvas::windowTransform().width());
-        _bg->setHeight(Canvas::windowTransform().height());
+        _bg->setWidth(Canvas::windowTransform()->width());
+        _bg->setHeight(Canvas::windowTransform()->height());
 
         return *this;
     }
     GameOverMsgs& GameOverMsgs::showLoose() noexcept
     {
         _looseMsg->setActive(true);
-        _bg->setWidth(Canvas::windowTransform().width());
-        _bg->setHeight(Canvas::windowTransform().height());
+        _bg->setWidth(Canvas::windowTransform()->width());
+        _bg->setHeight(Canvas::windowTransform()->height());
 
         return *this;
     }
@@ -97,8 +97,8 @@ namespace UI
 
         float ratio { (_baseCdShown - _cd) / _baseCdShown };
 
-        _winMsg->setWidth(Canvas::windowTransform().width() * ratio);
-        _winMsg->setHeight(Canvas::windowTransform().height() * ratio);
+        _winMsg->setWidth(Canvas::windowTransform()->width() * ratio);
+        _winMsg->setHeight(Canvas::windowTransform()->height() * ratio);
 
         _bg->color() = Vec4 { 0.f, 0.f, 0.f, ratio };
         if (_cd <= 0)
@@ -118,8 +118,8 @@ namespace UI
 
         float ratio { (_baseCdShown - _cd) / _baseCdShown };
 
-        _looseMsg->setWidth(Canvas::windowTransform().width() * ratio);
-        _looseMsg->setHeight(Canvas::windowTransform().height() * ratio);
+        _looseMsg->setWidth(Canvas::windowTransform()->width() * ratio);
+        _looseMsg->setHeight(Canvas::windowTransform()->height() * ratio);
 
         _bg->color() = Vec4 { 0.f, 0.f, 0.f, ratio };
 

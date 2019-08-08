@@ -6,7 +6,7 @@
 
 //#define NDEBUG
 
-#define DEBUG_SEV_INFO
+#define DEBUG_SEV_WARNING
 
 namespace Core::Debug
 {

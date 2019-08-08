@@ -11,6 +11,7 @@ namespace Core::DataStructure
     typedef Resources::Canvas           Canvas;
     typedef Game::Inputs::InputModule   InputModule;
     typedef Core::Maths::Mat            Mat;
+    typedef Core::Maths::Vec3           Vec3;
     #pragma endregion
 
     class GraphCanvas
@@ -33,8 +34,8 @@ namespace Core::DataStructure
         #pragma endregion
 
         #pragma region Functions
-        void update      (const InputModule& module) noexcept;
-        void render      (const Mat& viewProj)       noexcept;
+        void update      (const InputModule& module)        noexcept;
+        void render      (const Mat& viewProj, Vec3 camPos) noexcept;
 
         Canvas* addCanvas() noexcept;
         void changeCanvas(uint canvas) noexcept;

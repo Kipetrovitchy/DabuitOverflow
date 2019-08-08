@@ -59,13 +59,28 @@ namespace Resources
         return *this;
     }
 
-    Canvas& Canvas::render(const Mat& transformParent) noexcept
+    Canvas& Canvas::render(const Mat& viewProj, Vec3 camPos) noexcept
     {
+        std::list<BaseUIComponent*> opaques;
+        std::map<float, BaseUIComponent*> translucents;
         for (auto it = _children.begin(); it != _children.end(); ++it)
         {
             if (*it)
-                (*it)->render(transformParent);
+                (*it)->sortPreRender(camPos, {0, 0, 0}, opaques, translucents);
         }
+
+        for (auto it { opaques.begin() }; it != opaques.end(); ++it)
+        {
+            if (*it)
+                (*it)->render(viewProj);
+        }
+
+        for (auto it {translucents.rbegin()}; it != translucents.rend(); ++it)
+        {
+            if (it->second)
+                (it->second)->render(viewProj);
+        }
+
         return *this;
     }
 

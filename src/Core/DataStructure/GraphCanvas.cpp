@@ -39,11 +39,11 @@ namespace Core::DataStructure
         current->update(module);
     }
 
-    void GraphCanvas::render(const Mat& viewProj) noexcept
+    void GraphCanvas::render(const Mat& viewProj, Vec3 camPos) noexcept
     {
         Canvas* current = { currentCanvas() };
 
-        current->render(viewProj);
+        current->render(viewProj, camPos);
     }
 
     Canvas* GraphCanvas::addCanvas() noexcept

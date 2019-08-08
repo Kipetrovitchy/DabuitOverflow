@@ -66,6 +66,9 @@ namespace Physics
             inline GLuint   height() const { return _height; }
 
             inline Mat      TRS() const { return _trs; }
+
+            //Needed for transparency
+            Mat             globalTRS() const;
             #pragma endregion
     };
 } // namespace Physics

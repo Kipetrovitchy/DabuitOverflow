@@ -60,7 +60,7 @@ namespace UI
             #pragma endregion
     
             #pragma region Methods
-            BaseUIComponent& render(Mat transformParent) noexcept override;
+            BaseUIComponent& render(Mat viewProj) noexcept override;
 
             //Update the text area with the new stats. 
             //Need to be called after modifications of the text

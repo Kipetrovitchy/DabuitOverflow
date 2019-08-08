@@ -1,12 +1,15 @@
-﻿  ItemFactory.cpp
+﻿  HUDManager.cpp
 d:\documents\github\dabuitoverflow\include\game\bullet.h(9): warning C4099: 'Physics::Collisions::SegmentHit' : nom de type déjà rencontré avec 'struct' et utilisant maintenant 'class'
   d:\documents\github\dabuitoverflow\include\physics\collisions\segmenthit.h(8): note: voir la déclaration de 'Physics::Collisions::SegmentHit'
-d:\documents\github\dabuitoverflow\src\game\items\itemfactory.cpp(38): warning C4305: 'argument' : troncation de 'double' à 'float'
-d:\documents\github\dabuitoverflow\src\game\items\itemfactory.cpp(49): warning C4305: 'argument' : troncation de 'double' à 'float'
+d:\documents\github\dabuitoverflow\include\game\gamemgr.h(29): warning C4005: 'PATH_VERTEX' : redéfinition de macro
+  d:\documents\github\dabuitoverflow\include\lowrenderer\gameobject.h(21): note: voir la définition précédente de 'PATH_VERTEX'
+d:\documents\github\dabuitoverflow\include\game\gamemgr.h(30): warning C4005: 'PATH_FRAGMENT' : redéfinition de macro
+  d:\documents\github\dabuitoverflow\include\lowrenderer\gameobject.h(22): note: voir la définition précédente de 'PATH_FRAGMENT'
+d:\documents\github\dabuitoverflow\include\game\gamemgr.h(94): warning C4305: 'initialisation' : troncation de 'double' à 'float'
 SOIL.lib(SOIL.obj) : warning LNK4075: ' /EDITANDCONTINUE' ignoré à cause de la spécification '/OPT:ICF'
 LINK : warning LNK4098: conflit entre la bibliothèque par défaut 'MSVCRTD' et les autres bibliothèques ; utilisez /NODEFAULTLIB:library
   Génération de code en cours
-  4 of 5724 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+  1 of 5883 functions (<0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     1 functions had inline decision re-evaluated but remain unchanged
   Fin de la génération du code

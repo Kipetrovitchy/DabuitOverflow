@@ -13,7 +13,7 @@ namespace Physics
         _width { 100 },
         _height { 50 },
         _trs { Mat::identity(4) },
-        _parent { &Resources::Canvas::windowTransform() }
+        _parent { Resources::Canvas::windowTransform() }
     {}
     Transform2D::Transform2D(const Transform2D& t) noexcept :
         _anchoredPos { t._anchoredPos },
@@ -27,7 +27,13 @@ namespace Physics
     {}
 
     Transform2D::Transform2D(const Vec3& pos) noexcept :
-        _position { pos }
+        _anchoredPos { Vec3::zero},
+        _position { pos },
+        _rotation { Vec3::zero },
+        _width { 100 },
+        _height { 50 },
+        _trs { Mat::identity(4) },
+        _parent { Resources::Canvas::windowTransform() }
     {
         updateTRS();
     }
@@ -39,7 +45,7 @@ namespace Physics
         _width { width },
         _height { height },
         _anchor { anchor },
-        _parent { &Resources::Canvas::windowTransform() }
+        _parent { Resources::Canvas::windowTransform() }
     {
         updateTRS();
     }
@@ -142,6 +148,16 @@ namespace Physics
                                                          Vec3::one);
 
         return *this;
+    }
+    #pragma endregion
+
+    #pragma region Accessors
+    Mat Transform2D::globalTRS() const
+    {
+        if (_parent == Resources::Canvas::windowTransform())
+            return _trs;
+        else
+            return _parent->globalTRS() * _trs;
     }
     #pragma endregion
 } // namespace Physics

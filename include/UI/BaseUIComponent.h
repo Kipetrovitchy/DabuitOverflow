@@ -8,6 +8,8 @@
 #include "InputModule.h"
 
 #include <vector>
+#include <list>
+#include <map>
 
 namespace UI
 {
@@ -23,6 +25,8 @@ namespace UI
     {
         protected:
             #pragma region Attributes
+            //dirty bool here to test the transparency support
+            bool _isOpaque { true };
             bool _enabled;
             Transform2D _transform;
 
@@ -31,9 +35,10 @@ namespace UI
 
             #pragma region Private Methods
             BaseUIComponent& updateChildrenTransform()              noexcept;
-            BaseUIComponent& renderChildren(const Mat& transform)   noexcept;
             BaseUIComponent& updateChildren(const Mat& transform,
                                             const InputModule& module) noexcept;
+            
+            Vec3 globalPosition(Vec3 parentPos);
             #pragma endregion
         public:
             #pragma region Constructors / Destructors
@@ -51,13 +56,17 @@ namespace UI
             BaseUIComponent* addChild(BaseUIComponent* child)    noexcept;
             virtual BaseUIComponent& update(Mat transformParent,
                                             const InputModule& module) noexcept;
-            virtual BaseUIComponent& render(Mat transformParent) noexcept;
+            virtual BaseUIComponent& render(Mat viewProj) noexcept;
+            BaseUIComponent& sortPreRender(Vec3 camPos, Vec3 parentPos, 
+                                           std::list<BaseUIComponent*>& opaques,
+                                           std::map<float, BaseUIComponent*>& translucents) noexcept;
             #pragma endregion
 
             #pragma region Accessors
             inline Transform2D     transform() const { return _transform; }
             inline Transform2D&    transform()       { return _transform; }
             inline bool            enabled()   const { return _enabled; }
+            inline bool&           isOpaque()        { return _isOpaque; }
 
             virtual BaseUIComponent& setWidth(GLuint width)     noexcept;
             virtual BaseUIComponent& setHeight(GLuint height)   noexcept;
