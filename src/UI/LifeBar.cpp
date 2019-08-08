@@ -1,4 +1,5 @@
 #include "LifeBar.h"
+#include "HUDManager.h"
 
 namespace UI
 {
@@ -34,16 +35,17 @@ namespace UI
     #pragma region Methods
     LifeBar& LifeBar::init(ResourcesManager* mgr, Canvas* hud)
     {
-        _bg = new Image(mgr->getTexture("./resources/Life Bar/bg.png"),
-                        mgr->getShader( "./resources/Shaders/image.vs",
-                                        "./resources/Shaders/image.fs"));
+        _bg = new Image(mgr->getTexture(BG_IMG),
+                        mgr->getShader( IMG_VERTEX,
+                                        IMG_FRAGMENT));
         _bg->setHeight(50).setWidth(300);
         _bg->transform().setAnchor(EAnchor::TOPLEFT);
         _bg->transform().setAnchoredPosition({160, -35, -1.f});
+		_bg->color() = Vec4{0.39,  0.428,   0.491, 1};
 
-        _fg = new Image(mgr->getTexture("./resources/bg.png"),
-                        mgr->getShader( "./resources/Shaders/image.vs",
-                                        "./resources/Shaders/image.fs"));
+        _fg = new Image(mgr->getTexture(BG_IMG),
+                        mgr->getShader( IMG_VERTEX,
+                                        IMG_FRAGMENT));
         _fg->setHeight(50).setWidth(300);
         _fg->transform().setAnchor(EAnchor::TOPLEFT);
         _fg->transform().setAnchoredPosition({160, -35, 0.f});

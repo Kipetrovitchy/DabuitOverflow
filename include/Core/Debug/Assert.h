@@ -3,7 +3,7 @@
 
 #include <string>
 
-//#define NDEBUG
+#undef NDEBUG
 
 namespace Core::Debug
 {

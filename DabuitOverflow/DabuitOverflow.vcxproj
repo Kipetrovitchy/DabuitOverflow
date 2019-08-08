@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{22009AB3-CB27-4182-9207-EE838D851EAD}</ProjectGuid>
+    <RootNamespace>DabuitOverflow</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(ProjectDir)..\include\UI;$(ProjectDir)..\include\Resources;$(ProjectDir)..\include\Physics;$(ProjectDir)..\include\Physics\Collisions;$(ProjectDir)..\include\LowRenderer;$(ProjectDir)..\include\Game;$(ProjectDir)..\include\Game\StateMachine;$(ProjectDir)..\include\Game\Items;$(ProjectDir)..\include\Game\Inputs;$(ProjectDir)..\include\Game\Inputs\Commands;$(ProjectDir)..\include\Core\Maths;$(ProjectDir)..\include\Core\Debug;$(ProjectDir)..\include\Core\DataStructure;$(ProjectDir)..\include\;$(IncludePath)</IncludePath>
+    <ReferencePath>$(ReferencePath)</ReferencePath>
+    <LibraryPath>$(ProjectDir)..\lib\;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LibraryPath>$(ProjectDir)..\lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)..\include\UI;$(ProjectDir)..\include\Resources;$(ProjectDir)..\include\Physics;$(ProjectDir)..\include\Physics\Collisions;$(ProjectDir)..\include\LowRenderer;$(ProjectDir)..\include\Game;$(ProjectDir)..\include\Game\StateMachine;$(ProjectDir)..\include\Game\Items;$(ProjectDir)..\include\Game\Inputs;$(ProjectDir)..\include\Game\Inputs\Commands;$(ProjectDir)..\include\Core\Maths;$(ProjectDir)..\include\Core\Debug;$(ProjectDir)..\include\Core\DataStructure;$(ProjectDir)..\include\;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level2</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_USE_MATH_DEFINES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;..\lib\glew32.lib;..\lib\SDL2.lib;..\lib\SOIL.lib;..\lib\freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_USE_MATH_DEFINES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;..\lib\glew32.lib;..\lib\SDL2.lib;..\lib\SOIL.lib;..\lib\freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Core\DataStructure\GraphCanvas.cpp" />
+    <ClCompile Include="..\src\Core\DataStructure\GraphScene.cpp" />
+    <ClCompile Include="..\src\Core\DataStructure\Triplet.cpp" />
+    <ClCompile Include="..\src\Core\DataStructure\Vertex.cpp" />
+    <ClCompile Include="..\src\Core\Debug\Assert.cpp" />
+    <ClCompile Include="..\src\Core\Debug\Log.cpp" />
+    <ClCompile Include="..\src\Core\Maths\AABB.cpp" />
+    <ClCompile Include="..\src\Core\Maths\Capsule.cpp" />
+    <ClCompile Include="..\src\Core\Maths\CircleArc.cpp" />
+    <ClCompile Include="..\src\Core\Maths\CylCoord.cpp" />
+    <ClCompile Include="..\src\Core\Maths\Cylinder.cpp" />
+    <ClCompile Include="..\src\Core\Maths\Mat.cpp" />
+    <ClCompile Include="..\src\Core\Maths\OBox.cpp" />
+    <ClCompile Include="..\src\Core\Maths\Plane.cpp" />
+    <ClCompile Include="..\src\Core\Maths\PrismaticFieldOfView.cpp" />
+    <ClCompile Include="..\src\Core\Maths\Quad.cpp" />
+    <ClCompile Include="..\src\Core\Maths\Range.cpp" />
+    <ClCompile Include="..\src\Core\Maths\Referential.cpp" />
+    <ClCompile Include="..\src\Core\Maths\Segment.cpp" />
+    <ClCompile Include="..\src\Core\Maths\SphCoord.cpp" />
+    <ClCompile Include="..\src\Core\Maths\Sphere.cpp" />
+    <ClCompile Include="..\src\Core\Maths\Vec2.cpp" />
+    <ClCompile Include="..\src\Core\Maths\Vec3.cpp" />
+    <ClCompile Include="..\src\Core\Maths\Vec4.cpp" />
+    <ClCompile Include="..\src\Game\Bullet.cpp" />
+    <ClCompile Include="..\src\Game\BulletFactory.cpp" />
+    <ClCompile Include="..\src\Game\Enemy.cpp" />
+    <ClCompile Include="..\src\Game\Entity.cpp" />
+    <ClCompile Include="..\src\Game\GameMgr.cpp" />
+    <ClCompile Include="..\src\Game\HUDManager.cpp" />
+    <ClCompile Include="..\src\Game\Impact.cpp" />
+    <ClCompile Include="..\src\Game\Inputs\Commands\CancelCommand.cpp" />
+    <ClCompile Include="..\src\Game\Inputs\Commands\InputModuleCommand.cpp" />
+    <ClCompile Include="..\src\Game\Inputs\Commands\PlayerAimCommand.cpp" />
+    <ClCompile Include="..\src\Game\Inputs\Commands\PlayerBackwardCommand.cpp" />
+    <ClCompile Include="..\src\Game\Inputs\Commands\PlayerCommand.cpp" />
+    <ClCompile Include="..\src\Game\Inputs\Commands\PlayerForwardCommand.cpp" />
+    <ClCompile Include="..\src\Game\Inputs\Commands\PlayerHealCommand.cpp" />
+    <ClCompile Include="..\src\Game\Inputs\Commands\PlayerJumpCommand.cpp" />
+    <ClCompile Include="..\src\Game\Inputs\Commands\PlayerLeftCommand.cpp" />
+    <ClCompile Include="..\src\Game\Inputs\Commands\PlayerReloadCommand.cpp" />
+    <ClCompile Include="..\src\Game\Inputs\Commands\PlayerRightCommand.cpp" />
+    <ClCompile Include="..\src\Game\Inputs\Commands\PlayerShootCommand.cpp" />
+    <ClCompile Include="..\src\Game\Inputs\Commands\PlayerWeaponDownCommand.cpp" />
+    <ClCompile Include="..\src\Game\Inputs\Commands\PlayerWeaponUpCommand.cpp" />
+    <ClCompile Include="..\src\Game\Inputs\Commands\SubmitCommand.cpp" />
+    <ClCompile Include="..\src\Game\Inputs\InputMgr.cpp" />
+    <ClCompile Include="..\src\Game\Inputs\InputModule.cpp" />
+    <ClCompile Include="..\src\Game\Inventory.cpp" />
+    <ClCompile Include="..\src\Game\Items\Ammo.cpp" />
+    <ClCompile Include="..\src\Game\Items\Consumable.cpp" />
+    <ClCompile Include="..\src\Game\Items\Item.cpp" />
+    <ClCompile Include="..\src\Game\Items\ItemFactory.cpp" />
+    <ClCompile Include="..\src\Game\Items\Medikit.cpp" />
+    <ClCompile Include="..\src\Game\Items\PickableItem.cpp" />
+    <ClCompile Include="..\src\Game\Items\Weapon.cpp" />
+    <ClCompile Include="..\src\Game\LevelManager.cpp" />
+    <ClCompile Include="..\src\Game\Player.cpp" />
+    <ClCompile Include="..\src\Game\Skybox.cpp" />
+    <ClCompile Include="..\src\Game\StateMachine\Decision.cpp" />
+    <ClCompile Include="..\src\Game\StateMachine\DecisionEnemy.cpp" />
+    <ClCompile Include="..\src\Game\StateMachine\DecisionEnemyCanAttack.cpp" />
+    <ClCompile Include="..\src\Game\StateMachine\DecisionEnemyReachedTargetPos.cpp" />
+    <ClCompile Include="..\src\Game\StateMachine\DecisionEnemySeeTarget.cpp" />
+    <ClCompile Include="..\src\Game\StateMachine\DecisionPlayer.cpp" />
+    <ClCompile Include="..\src\Game\StateMachine\DecisionPlayerGrounded.cpp" />
+    <ClCompile Include="..\src\Game\StateMachine\State.cpp" />
+    <ClCompile Include="..\src\Game\StateMachine\StateEnemy.cpp" />
+    <ClCompile Include="..\src\Game\StateMachine\StateEnemyAttack.cpp" />
+    <ClCompile Include="..\src\Game\StateMachine\StateEnemyChase.cpp" />
+    <ClCompile Include="..\src\Game\StateMachine\StateEnemyIdle.cpp" />
+    <ClCompile Include="..\src\Game\StateMachine\StateMachine.cpp" />
+    <ClCompile Include="..\src\Game\StateMachine\StateMachinePlayer.cpp" />
+    <ClCompile Include="..\src\Game\StateMachine\StatePlayer.cpp" />
+    <ClCompile Include="..\src\Game\StateMachine\StatePlayerFlying.cpp" />
+    <ClCompile Include="..\src\Game\StateMachine\StatePlayerGrounded.cpp" />
+    <ClCompile Include="..\src\Game\StateMachine\Transition.cpp" />
+    <ClCompile Include="..\src\Game\Window.cpp" />
+    <ClCompile Include="..\src\LowRenderer\Camera.cpp" />
+    <ClCompile Include="..\src\LowRenderer\Camera3D.cpp" />
+    <ClCompile Include="..\src\LowRenderer\CameraUI.cpp" />
+    <ClCompile Include="..\src\LowRenderer\DirectionalLight.cpp" />
+    <ClCompile Include="..\src\LowRenderer\GameObject.cpp" />
+    <ClCompile Include="..\src\LowRenderer\Light.cpp" />
+    <ClCompile Include="..\src\LowRenderer\PointLight.cpp" />
+    <ClCompile Include="..\src\LowRenderer\SpotLight.cpp" />
+    <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\Physics\Collisions\3DCollisions.cpp" />
+    <ClCompile Include="..\src\Physics\Collisions\BoxCollider.cpp" />
+    <ClCompile Include="..\src\Physics\Collisions\Collider.cpp" />
+    <ClCompile Include="..\src\Physics\Collisions\ColliderFactory.cpp" />
+    <ClCompile Include="..\src\Physics\Collisions\Hit.cpp" />
+    <ClCompile Include="..\src\Physics\Collisions\SegmentHit.cpp" />
+    <ClCompile Include="..\src\Physics\Collisions\SphereCollider.cpp" />
+    <ClCompile Include="..\src\Physics\RigidBody.cpp" />
+    <ClCompile Include="..\src\Physics\Transform.cpp" />
+    <ClCompile Include="..\src\Physics\Transform2D.cpp" />
+    <ClCompile Include="..\src\Resources\Canvas.cpp" />
+    <ClCompile Include="..\src\Resources\Font.cpp" />
+    <ClCompile Include="..\src\Resources\Material.cpp" />
+    <ClCompile Include="..\src\Resources\Model.cpp" />
+    <ClCompile Include="..\src\Resources\ResourcesManager.cpp" />
+    <ClCompile Include="..\src\Resources\SaveManager.cpp" />
+    <ClCompile Include="..\src\Resources\Scene.cpp" />
+    <ClCompile Include="..\src\Resources\Shader.cpp" />
+    <ClCompile Include="..\src\Resources\Texture.cpp" />
+    <ClCompile Include="..\src\UI\Anchor.cpp" />
+    <ClCompile Include="..\src\UI\BaseUIComponent.cpp" />
+    <ClCompile Include="..\src\UI\Button.cpp" />
+    <ClCompile Include="..\src\UI\Colorable.cpp" />
+    <ClCompile Include="..\src\UI\GameOverMsgs.cpp" />
+    <ClCompile Include="..\src\UI\Image.cpp" />
+    <ClCompile Include="..\src\UI\Johan.cpp" />
+    <ClCompile Include="..\src\UI\LifeBar.cpp" />
+    <ClCompile Include="..\src\UI\Text.cpp" />
+    <ClCompile Include="..\src\UI\VertexUI.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\Core\DataStructure\GraphCanvas.h" />
+    <ClInclude Include="..\include\Core\DataStructure\GraphScene.h" />
+    <ClInclude Include="..\include\Core\DataStructure\Triplet.h" />
+    <ClInclude Include="..\include\Core\DataStructure\Vertex.h" />
+    <ClInclude Include="..\include\Core\Debug\Assert.h" />
+    <ClInclude Include="..\include\Core\Debug\Log.h" />
+    <ClInclude Include="..\include\Core\Maths\AABB.h" />
+    <ClInclude Include="..\include\Core\Maths\Capsule.h" />
+    <ClInclude Include="..\include\Core\Maths\CircleArc.h" />
+    <ClInclude Include="..\include\Core\Maths\CylCoord.h" />
+    <ClInclude Include="..\include\Core\Maths\Cylinder.h" />
+    <ClInclude Include="..\include\Core\Maths\FieldOfView.h" />
+    <ClInclude Include="..\include\Core\Maths\LibMaths.h" />
+    <ClInclude Include="..\include\Core\Maths\Mat.h" />
+    <ClInclude Include="..\include\Core\Maths\OBox.h" />
+    <ClInclude Include="..\include\Core\Maths\Plane.h" />
+    <ClInclude Include="..\include\Core\Maths\PrismaticFieldOfView.h" />
+    <ClInclude Include="..\include\Core\Maths\Quad.h" />
+    <ClInclude Include="..\include\Core\Maths\Range.h" />
+    <ClInclude Include="..\include\Core\Maths\Referential.h" />
+    <ClInclude Include="..\include\Core\Maths\Segment.h" />
+    <ClInclude Include="..\include\Core\Maths\SphCoord.h" />
+    <ClInclude Include="..\include\Core\Maths\Sphere.h" />
+    <ClInclude Include="..\include\Core\Maths\Vec2.h" />
+    <ClInclude Include="..\include\Core\Maths\Vec3.h" />
+    <ClInclude Include="..\include\Core\Maths\Vec4.h" />
+    <ClInclude Include="..\include\Game\Bullet.h" />
+    <ClInclude Include="..\include\Game\BulletFactory.h" />
+    <ClInclude Include="..\include\Game\Enemy.h" />
+    <ClInclude Include="..\include\Game\Entity.h" />
+    <ClInclude Include="..\include\Game\GameMgr.h" />
+    <ClInclude Include="..\include\Game\HUDManager.h" />
+    <ClInclude Include="..\include\Game\Impact.h" />
+    <ClInclude Include="..\include\Game\Inputs\Commands\CancelCommand.h" />
+    <ClInclude Include="..\include\Game\Inputs\Commands\Command.h" />
+    <ClInclude Include="..\include\Game\Inputs\Commands\InputModuleCommand.h" />
+    <ClInclude Include="..\include\Game\Inputs\Commands\PlayerAimCommand.h" />
+    <ClInclude Include="..\include\Game\Inputs\Commands\PlayerBackwardCommand.h" />
+    <ClInclude Include="..\include\Game\Inputs\Commands\PlayerCommand.h" />
+    <ClInclude Include="..\include\Game\Inputs\Commands\PlayerForwardCommand.h" />
+    <ClInclude Include="..\include\Game\Inputs\Commands\PlayerHealCommand.h" />
+    <ClInclude Include="..\include\Game\Inputs\Commands\PlayerJumpCommand.h" />
+    <ClInclude Include="..\include\Game\Inputs\Commands\PlayerLeftCommand.h" />
+    <ClInclude Include="..\include\Game\Inputs\Commands\PlayerReloadCommand.h" />
+    <ClInclude Include="..\include\Game\Inputs\Commands\PlayerRightCommand.h" />
+    <ClInclude Include="..\include\Game\Inputs\Commands\PlayerShootCommand.h" />
+    <ClInclude Include="..\include\Game\Inputs\Commands\PlayerWeaponDownCommand.h" />
+    <ClInclude Include="..\include\Game\Inputs\Commands\PlayerWeaponUpCommand.h" />
+    <ClInclude Include="..\include\Game\Inputs\Commands\SubmitCommand.h" />
+    <ClInclude Include="..\include\Game\Inputs\InputMgr.h" />
+    <ClInclude Include="..\include\Game\Inputs\InputModule.h" />
+    <ClInclude Include="..\include\Game\Inventory.h" />
+    <ClInclude Include="..\include\Game\Items\Ammo.h" />
+    <ClInclude Include="..\include\Game\Items\Consumable.h" />
+    <ClInclude Include="..\include\Game\Items\Item.h" />
+    <ClInclude Include="..\include\Game\Items\ItemFactory.h" />
+    <ClInclude Include="..\include\Game\Items\Medikit.h" />
+    <ClInclude Include="..\include\Game\Items\PickableItem.h" />
+    <ClInclude Include="..\include\Game\Items\Weapon.h" />
+    <ClInclude Include="..\include\Game\LevelManager.h" />
+    <ClInclude Include="..\include\Game\Player.h" />
+    <ClInclude Include="..\include\Game\Skybox.h" />
+    <ClInclude Include="..\include\Game\StateMachine\Decision.h" />
+    <ClInclude Include="..\include\Game\StateMachine\DecisionEnemy.h" />
+    <ClInclude Include="..\include\Game\StateMachine\DecisionEnemyCanAttack.h" />
+    <ClInclude Include="..\include\Game\StateMachine\DecisionEnemyReachedTargetPos.h" />
+    <ClInclude Include="..\include\Game\StateMachine\DecisionEnemySeeTarget.h" />
+    <ClInclude Include="..\include\Game\StateMachine\DecisionPlayer.h" />
+    <ClInclude Include="..\include\Game\StateMachine\DecisionPlayerGrounded.h" />
+    <ClInclude Include="..\include\Game\StateMachine\IController.h" />
+    <ClInclude Include="..\include\Game\StateMachine\State.h" />
+    <ClInclude Include="..\include\Game\StateMachine\StateEnemy.h" />
+    <ClInclude Include="..\include\Game\StateMachine\StateEnemyAttack.h" />
+    <ClInclude Include="..\include\Game\StateMachine\StateEnemyChase.h" />
+    <ClInclude Include="..\include\Game\StateMachine\StateEnemyIdle.h" />
+    <ClInclude Include="..\include\Game\StateMachine\StateMachine.h" />
+    <ClInclude Include="..\include\Game\StateMachine\StateMachineObject.h" />
+    <ClInclude Include="..\include\Game\StateMachine\StateMachinePlayer.h" />
+    <ClInclude Include="..\include\Game\StateMachine\StatePlayer.h" />
+    <ClInclude Include="..\include\Game\StateMachine\StatePlayerFlying.h" />
+    <ClInclude Include="..\include\Game\StateMachine\StatePlayerGrounded.h" />
+    <ClInclude Include="..\include\Game\StateMachine\Transition.h" />
+    <ClInclude Include="..\include\Game\Window.h" />
+    <ClInclude Include="..\include\LowRenderer\Camera.h" />
+    <ClInclude Include="..\include\LowRenderer\Camera3D.h" />
+    <ClInclude Include="..\include\LowRenderer\CameraUI.h" />
+    <ClInclude Include="..\include\LowRenderer\DirectionalLight.h" />
+    <ClInclude Include="..\include\LowRenderer\GameObject.h" />
+    <ClInclude Include="..\include\LowRenderer\Light.h" />
+    <ClInclude Include="..\include\LowRenderer\PointLight.h" />
+    <ClInclude Include="..\include\LowRenderer\SpotLight.h" />
+    <ClInclude Include="..\include\Physics\Collisions\3DCollisions.h" />
+    <ClInclude Include="..\include\Physics\Collisions\BoxCollider.h" />
+    <ClInclude Include="..\include\Physics\Collisions\Collider.h" />
+    <ClInclude Include="..\include\Physics\Collisions\ColliderFactory.h" />
+    <ClInclude Include="..\include\Physics\Collisions\Hit.h" />
+    <ClInclude Include="..\include\Physics\Collisions\SegmentHit.h" />
+    <ClInclude Include="..\include\Physics\Collisions\SphereCollider.h" />
+    <ClInclude Include="..\include\Physics\RigidBody.h" />
+    <ClInclude Include="..\include\Physics\Transform.h" />
+    <ClInclude Include="..\include\Physics\Transform2D.h" />
+    <ClInclude Include="..\include\Resources\Canvas.h" />
+    <ClInclude Include="..\include\Resources\csv.h" />
+    <ClInclude Include="..\include\Resources\Font.h" />
+    <ClInclude Include="..\include\Resources\Material.h" />
+    <ClInclude Include="..\include\Resources\Model.h" />
+    <ClInclude Include="..\include\Resources\ResourcesManager.h" />
+    <ClInclude Include="..\include\Resources\SaveManager.h" />
+    <ClInclude Include="..\include\Resources\Scene.h" />
+    <ClInclude Include="..\include\Resources\Shader.h" />
+    <ClInclude Include="..\include\Resources\Texture.h" />
+    <ClInclude Include="..\include\SOIL.h" />
+    <ClInclude Include="..\include\UI\Anchor.h" />
+    <ClInclude Include="..\include\UI\BaseUIComponent.h" />
+    <ClInclude Include="..\include\UI\Button.h" />
+    <ClInclude Include="..\include\UI\Colorable.h" />
+    <ClInclude Include="..\include\UI\GameOverMsgs.h" />
+    <ClInclude Include="..\include\UI\Image.h" />
+    <ClInclude Include="..\include\UI\Johan.h" />
+    <ClInclude Include="..\include\UI\LifeBar.h" />
+    <ClInclude Include="..\include\UI\Text.h" />
+    <ClInclude Include="..\include\UI\VertexUI.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <chrono>
+#include <ctime>
 
 namespace Core::Debug
 {

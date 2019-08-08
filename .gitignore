@@ -3,3 +3,8 @@
 *.swp
 *.swa
 *.vscode
+*.obj
+*.vs
+*.exe
+*.tlog
+DabuitOverflow/Release/resources

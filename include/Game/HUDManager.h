@@ -12,6 +12,30 @@
 #include "Johan.h"
 #include "LevelManager.h"
 
+#if defined(__linux__)
+	#define TEXT_VERTEX ".\\resources\\Shaders\\text.vsh"
+	#define TEXT_FRAGMENT ".\\resources\\Shaders\\text.fsh"
+	#define IMG_VERTEX ".\\resources\\Shaders\\image.vs"
+	#define IMG_FRAGMENT ".\\resources\\Shaders\\image.fs"
+	#define BUTTON_IMG ".\\resources\\button.png"
+	#define BG_IMG ".\\resources\\bg.png"
+	#define OUTLINE_IMG ".\\resources\\outline.png"
+	#define CROSS_IMG ".\\resources\\cross.png"
+	#define MEDKIT_IMG ".\\resources\\Items\\medkit.png"
+	#define TEXT_FONT ".\\resources\\ProductSans-Medium.ttf"
+#elif _WIN32
+	#define TEXT_VERTEX "./resources/Shaders/text.vsh"
+	#define TEXT_FRAGMENT "./resources/Shaders/text.fsh"
+	#define IMG_VERTEX "./resources/Shaders/image.vs"
+	#define IMG_FRAGMENT "./resources/Shaders/image.fs"
+	#define BUTTON_IMG "./resources/button.png"
+	#define BG_IMG "./resources/bg.png"
+	#define OUTLINE_IMG "./resources/outline.png"
+	#define CROSS_IMG "./resources/cross.png"
+	#define MEDKIT_IMG "./resources/Items/medkit.png"
+	#define TEXT_FONT "./resources/ProductSans-Medium.ttf"
+#endif
+
 namespace Game
 {
     #pragma region enum

@@ -32,7 +32,11 @@ namespace Resources
         _resourcesManager = rm;
 
         // Get the path to the folder
+//#ifdef _WIN32
+		//_folderPath = path.substr(0, path.find_last_of('/') + 1);
+//#elif defined(__linux__)
         _folderPath = path.substr(0, path.find_last_of('/') + 1);
+//#endif
 
         // Open the file
         std::ifstream file(path, std::ios::in);

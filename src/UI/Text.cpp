@@ -1,6 +1,7 @@
 #include "Text.h"
 #include "Log.h"
 #include "Assert.h"
+#include <algorithm>
 
 
 namespace UI
@@ -134,7 +135,7 @@ namespace UI
         std::wstring::iterator c;
 
         //Retrieve the font and the start position of the string
-        std::map<GLchar, Resources::Character> characters = _font->characters();
+        std::map<GLchar, Resources::Character> characters(_font->characters());
         Resources::Character ch;
         Vec3 charPosition { anchoredPosition() };
 
@@ -171,12 +172,16 @@ namespace UI
         return *this;
     }
 
-    Text& Text::setEBO() noexcept
-    {
-        if (_text.length() == 0)
-            return *this;
+	Text& Text::setEBO() noexcept
+	{
+		if (_text.length() == 0)
+			return *this;
 
+		#ifdef _WIN32
+		GLuint* indices = new GLuint[_text.length() * 6];
+		#elif defined(__linux__)
         GLuint indices[_text.length() * 6];
+		#endif	
 
         for (GLuint i { 0 };  i < _text.length(); i++)
         {
@@ -189,8 +194,16 @@ namespace UI
         }
 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _EBO);
+#ifdef _WIN32
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, _text.length() * 6 * sizeof(GLuint), indices, GL_DYNAMIC_DRAW);
+#elif defined(__linux__)
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_DYNAMIC_DRAW);
+#endif
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
+		#ifdef _WIN32
+		delete[] indices;
+		#endif
 
         return *this;
     }

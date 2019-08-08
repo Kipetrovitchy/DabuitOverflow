@@ -128,7 +128,7 @@ namespace Game
 		// _graphScene->currentScene()->addChild(pI);
 
 		PickableItem* pI2 = new PickableItem("health",
-			_manager->getModel  ("resources/Crate/crate.obj"),
+			_manager->getModel  (".\\resources\\Crate\\crate.obj"),
 			_manager->getShader (PATH_VERTEX, PATH_FRAGMENT),
 			{{4.0f, 1.0f, 1.5f}, Vec3::zero, {0.5f, 0.5f, 0.5f}},
 			ItemType::MEDIKIT, 1);

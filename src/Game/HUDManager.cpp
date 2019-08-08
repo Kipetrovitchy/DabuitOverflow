@@ -92,9 +92,9 @@ namespace Game
         Canvas* mainMenu { graph.addCanvas() };
 
 		//Game title text
-		UI::Text* title = new UI::Text(mgr->getFont("./resources/ProductSans-Medium.ttf"), 
-									   mgr->getShader("./resources/Shaders/text.vsh", 
-														   "./resources/Shaders/text.fsh"));
+		UI::Text* title = new UI::Text(mgr->getFont(TEXT_FONT), 
+									   mgr->getShader(TEXT_VERTEX, 
+														   TEXT_FRAGMENT));
 		title->transform().setAnchor(UI::EAnchor::TOPCENTER);
 		title->transform().setAnchoredPosition({0, -70, 0});
 		title->setWidth(400).setHeight(100);
@@ -103,12 +103,12 @@ namespace Game
 		title->textScale() = 0.3f;
 		title->update();
 
-		UI::Button* newGame = new UI::Button(mgr->getTexture("./resources/button.png"),
-										   mgr->getShader("./resources/Shaders/image.vs",
-										   					   "./resources/Shaders/image.fs"),
-										   mgr->getFont(  "./resources/ProductSans-Medium.ttf"),
-										   mgr->getShader("./resources/Shaders/text.vsh",
-										                       "./resources/Shaders/text.fsh"));
+		UI::Button* newGame = new UI::Button(mgr->getTexture(BUTTON_IMG),
+										   mgr->getShader(IMG_VERTEX,
+										   					   IMG_FRAGMENT),
+										   mgr->getFont(  TEXT_FONT),
+										   mgr->getShader(TEXT_VERTEX,
+										                       TEXT_FRAGMENT));
 		newGame->transform().setAnchor(UI::EAnchor::MIDLEFT);
 		newGame->transform().setAnchoredPosition({200, 100, 0});
 		newGame->setWidth(200).setHeight(75);
@@ -118,12 +118,12 @@ namespace Game
 		newGame->addListener([g = game]() { g->newGame(); });
 		newGame->addListener([this]() { updateMenuState(EMenuState::NONE); });
 
-		_loadGame = new UI::Button(mgr->getTexture("./resources/button.png"),
-										   mgr->getShader("./resources/Shaders/image.vs",
-										   					   "./resources/Shaders/image.fs"),
-										   mgr->getFont(  "./resources/ProductSans-Medium.ttf"),
-										   mgr->getShader("./resources/Shaders/text.vsh",
-										                       "./resources/Shaders/text.fsh"));
+		_loadGame = new UI::Button(mgr->getTexture(BUTTON_IMG),
+										   mgr->getShader(IMG_VERTEX,
+										   					   IMG_FRAGMENT),
+										   mgr->getFont(  TEXT_FONT),
+										   mgr->getShader(TEXT_VERTEX,
+										                       TEXT_FRAGMENT));
 		_loadGame->transform().setAnchor(UI::EAnchor::MIDLEFT);
 		_loadGame->transform().setAnchoredPosition({200, 0, 0});
 		_loadGame->setWidth(200).setHeight(75);
@@ -136,12 +136,12 @@ namespace Game
 		});
 		_loadGame->targetsColor().push_back(_loadGame->text());
 
-		UI::Button* options = new UI::Button(mgr->getTexture("./resources/button.png"),
-										   mgr->getShader("./resources/Shaders/image.vs",
-										   					   "./resources/Shaders/image.fs"),
-										   mgr->getFont(  "./resources/ProductSans-Medium.ttf"),
-										   mgr->getShader("./resources/Shaders/text.vsh",
-										                       "./resources/Shaders/text.fsh"));
+		UI::Button* options = new UI::Button(mgr->getTexture(BUTTON_IMG),
+										   mgr->getShader(IMG_VERTEX,
+										   					   IMG_FRAGMENT),
+										   mgr->getFont(  TEXT_FONT),
+										   mgr->getShader(TEXT_VERTEX,
+										                       TEXT_FRAGMENT));
 		options->transform().setAnchor(UI::EAnchor::MIDLEFT);
 		options->transform().setAnchoredPosition({200, -100, 0});
 		options->setWidth(200).setHeight(75);
@@ -150,12 +150,12 @@ namespace Game
 		options->text()->update();
 		options->addListener([g = game]() { g->goToOptionsMenu(); });
 
-		UI::Button* quit = new UI::Button(mgr->getTexture("./resources/button.png"),
-										   mgr->getShader("./resources/Shaders/image.vs",
-										   					   "./resources/Shaders/image.fs"),
-										   mgr->getFont(  "./resources/ProductSans-Medium.ttf"),
-										   mgr->getShader("./resources/Shaders/text.vsh",
-										                       "./resources/Shaders/text.fsh"));
+		UI::Button* quit = new UI::Button(mgr->getTexture(BUTTON_IMG),
+										   mgr->getShader(IMG_VERTEX,
+										   					   IMG_FRAGMENT),
+										   mgr->getFont(  TEXT_FONT),
+										   mgr->getShader(TEXT_VERTEX,
+										                       TEXT_FRAGMENT));
 		quit->transform().setAnchor(UI::EAnchor::MIDLEFT);
 		quit->transform().setAnchoredPosition({200, -200, 0});
 		quit->setWidth(200).setHeight(75);
@@ -179,16 +179,16 @@ namespace Game
 
 		Canvas* escMenu { graph.addCanvas() };
 
-		UI::Image* bg = new UI::Image(mgr->getTexture("./resources/bg.png"),
-									 mgr->getShader(  "./resources/Shaders/image.vs",
-												      "./resources/Shaders/image.fs"));
+		UI::Image* bg = new UI::Image(mgr->getTexture(BG_IMG),
+									 mgr->getShader(  IMG_VERTEX,
+												      IMG_FRAGMENT));
 		bg->color() = Vec4 { 0.f, 0.f, 0.f, 0.7f };
 		bg->setWidth(3000).setHeight(3000);
 		bg->transform().setAnchoredPosition({0, 0, -5.f});
 
-		UI::Text* title = new UI::Text(mgr->getFont("./resources/ProductSans-Medium.ttf"), 
-									   mgr->getShader("./resources/Shaders/text.vsh", 
-														   "./resources/Shaders/text.fsh"));
+		UI::Text* title = new UI::Text(mgr->getFont(TEXT_FONT), 
+									   mgr->getShader(TEXT_VERTEX, 
+														   TEXT_FRAGMENT));
 		title->transform().setAnchor(UI::EAnchor::TOPCENTER);
 		title->transform().setAnchoredPosition({0, -70, 0});
 		title->setWidth(400).setHeight(100);
@@ -197,12 +197,12 @@ namespace Game
 		title->textScale() = 0.3f;
 		title->update();
 
-		UI::Button* resume = new UI::Button(mgr->getTexture("./resources/button.png"),
-										   mgr->getShader("./resources/Shaders/image.vs",
-										   					   "./resources/Shaders/image.fs"),
-										   mgr->getFont(  "./resources/ProductSans-Medium.ttf"),
-										   mgr->getShader("./resources/Shaders/text.vsh",
-										                       "./resources/Shaders/text.fsh"));
+		UI::Button* resume = new UI::Button(mgr->getTexture(BUTTON_IMG),
+										   mgr->getShader(IMG_VERTEX,
+										   					   IMG_FRAGMENT),
+										   mgr->getFont(  TEXT_FONT),
+										   mgr->getShader(TEXT_VERTEX,
+										                       TEXT_FRAGMENT));
 		resume->transform().setAnchor(UI::EAnchor::MIDCENTER);
 		resume->transform().setAnchoredPosition({0, 100, 0});
 		resume->setWidth(200).setHeight(75);
@@ -211,12 +211,12 @@ namespace Game
 		resume->text()->update();
 		resume->addListener([g = game]() { g->goToIngame(); });
 
-		UI::Button* save = new UI::Button(mgr->getTexture("./resources/button.png"),
-										   mgr->getShader("./resources/Shaders/image.vs",
-										   					   "./resources/Shaders/image.fs"),
-										   mgr->getFont(  "./resources/ProductSans-Medium.ttf"),
-										   mgr->getShader("./resources/Shaders/text.vsh",
-										                       "./resources/Shaders/text.fsh"));
+		UI::Button* save = new UI::Button(mgr->getTexture(BUTTON_IMG),
+										   mgr->getShader(IMG_VERTEX,
+										   					   IMG_FRAGMENT),
+										   mgr->getFont(  TEXT_FONT),
+										   mgr->getShader(TEXT_VERTEX,
+										                       TEXT_FRAGMENT));
 		save->transform().setAnchor(UI::EAnchor::MIDCENTER);
 		save->transform().setAnchoredPosition({0, 0, 0});
 		save->setWidth(200).setHeight(75);
@@ -230,12 +230,12 @@ namespace Game
 				g->graphScene()->currentScene());
 		});
 
-		UI::Button* options = new UI::Button(mgr->getTexture("./resources/button.png"),
-										   mgr->getShader("./resources/Shaders/image.vs",
-										   					   "./resources/Shaders/image.fs"),
-										   mgr->getFont(  "./resources/ProductSans-Medium.ttf"),
-										   mgr->getShader("./resources/Shaders/text.vsh",
-										                       "./resources/Shaders/text.fsh"));
+		UI::Button* options = new UI::Button(mgr->getTexture(BUTTON_IMG),
+										   mgr->getShader(IMG_VERTEX,
+										   					   IMG_FRAGMENT),
+										   mgr->getFont(  TEXT_FONT),
+										   mgr->getShader(TEXT_VERTEX,
+										                       TEXT_FRAGMENT));
 		options->transform().setAnchor(UI::EAnchor::MIDCENTER);
 		options->transform().setAnchoredPosition({0, -100, 0});
 		options->setWidth(200).setHeight(75);
@@ -244,12 +244,12 @@ namespace Game
 		options->text()->update();
 		options->addListener([g = game]() { g->goToOptionsMenu(); });
 
-		UI::Button* quit = new UI::Button(mgr->getTexture("./resources/button.png"),
-										   mgr->getShader("./resources/Shaders/image.vs",
-										   					   "./resources/Shaders/image.fs"),
-										   mgr->getFont(  "./resources/ProductSans-Medium.ttf"),
-										   mgr->getShader("./resources/Shaders/text.vsh",
-										                       "./resources/Shaders/text.fsh"));
+		UI::Button* quit = new UI::Button(mgr->getTexture(BUTTON_IMG),
+										   mgr->getShader(IMG_VERTEX,
+										   					   IMG_FRAGMENT),
+										   mgr->getFont(  TEXT_FONT),
+										   mgr->getShader(TEXT_VERTEX,
+										                       TEXT_FRAGMENT));
 		quit->transform().setAnchor(UI::EAnchor::MIDCENTER);
 		quit->transform().setAnchoredPosition({0, -200, 0});
 		quit->setWidth(200).setHeight(75);
@@ -271,16 +271,16 @@ namespace Game
 	{
 		Canvas* options { graph.addCanvas() };
 
-		UI::Image* bg = new UI::Image(mgr->getTexture("./resources/bg.png"),
-									 mgr->getShader(  "./resources/Shaders/image.vs",
-												      "./resources/Shaders/image.fs"));
+		UI::Image* bg = new UI::Image(mgr->getTexture(BG_IMG),
+									 mgr->getShader(  IMG_VERTEX,
+												      IMG_FRAGMENT));
 		bg->color() = Vec4 { 0.f, 0.f, 0.f, 0.7f };
 		bg->setWidth(3000).setHeight(3000);
 		bg->transform().setAnchoredPosition({0, 0, -5.f});
 
-		UI::Text* title = new UI::Text(mgr->getFont("./resources/ProductSans-Medium.ttf"), 
-									   mgr->getShader("./resources/Shaders/text.vsh", 
-														   "./resources/Shaders/text.fsh"));
+		UI::Text* title = new UI::Text(mgr->getFont(TEXT_FONT), 
+									   mgr->getShader(TEXT_VERTEX, 
+														   TEXT_FRAGMENT));
 		title->transform().setAnchor(UI::EAnchor::TOPCENTER);
 		title->transform().setAnchoredPosition({0, -70, 0});
 		title->setWidth(400).setHeight(100);
@@ -289,12 +289,12 @@ namespace Game
 		title->textScale() = 0.3f;
 		title->update();
 
-		UI::Button* res1280x720 = new UI::Button(mgr->getTexture("./resources/button.png"),
-										   		 mgr->getShader("./resources/Shaders/image.vs",
-										   					   "./resources/Shaders/image.fs"),
-										   		 mgr->getFont(  "./resources/ProductSans-Medium.ttf"),
-										   		 mgr->getShader("./resources/Shaders/text.vsh",
-										                       "./resources/Shaders/text.fsh"));
+		UI::Button* res1280x720 = new UI::Button(mgr->getTexture(BUTTON_IMG),
+										   		 mgr->getShader(IMG_VERTEX,
+										   					   IMG_FRAGMENT),
+										   		 mgr->getFont(  TEXT_FONT),
+										   		 mgr->getShader(TEXT_VERTEX,
+										                       TEXT_FRAGMENT));
 		res1280x720->transform().setAnchor(UI::EAnchor::MIDLEFT);
 		res1280x720->transform().setAnchoredPosition({100, 70, 0});
 		res1280x720->setWidth(150);
@@ -303,12 +303,12 @@ namespace Game
 		res1280x720->addListener([w = game->window()](){w->reshape(1280, 720);});
 		res1280x720->targetsColor().push_back(res1280x720->text());
 
-		UI::Button* res1024x600 = new UI::Button(mgr->getTexture("./resources/button.png"),
-										   		 mgr->getShader("./resources/Shaders/image.vs",
-										   					   "./resources/Shaders/image.fs"),
-										   		 mgr->getFont(  "./resources/ProductSans-Medium.ttf"),
-										   		 mgr->getShader("./resources/Shaders/text.vsh",
-										                       "./resources/Shaders/text.fsh"));
+		UI::Button* res1024x600 = new UI::Button(mgr->getTexture(BUTTON_IMG),
+										   		 mgr->getShader(IMG_VERTEX,
+										   					   IMG_FRAGMENT),
+										   		 mgr->getFont(  TEXT_FONT),
+										   		 mgr->getShader(TEXT_VERTEX,
+										                       TEXT_FRAGMENT));
 		res1024x600->transform().setAnchor(UI::EAnchor::MIDLEFT);
 		res1024x600->transform().setAnchoredPosition({100, 20, 0});
 		res1024x600->setWidth(150);
@@ -317,12 +317,12 @@ namespace Game
 		res1024x600->addListener([w = game->window()](){w->reshape(1024, 600);});
 		res1024x600->targetsColor().push_back(res1024x600->text());
 
-		UI::Button* fullscreen = new UI::Button(mgr->getTexture("./resources/button.png"),
-										   		 mgr->getShader("./resources/Shaders/image.vs",
-										   					   "./resources/Shaders/image.fs"),
-										   		 mgr->getFont(  "./resources/ProductSans-Medium.ttf"),
-										   		 mgr->getShader("./resources/Shaders/text.vsh",
-										                       "./resources/Shaders/text.fsh"));
+		UI::Button* fullscreen = new UI::Button(mgr->getTexture(BUTTON_IMG),
+										   		 mgr->getShader(IMG_VERTEX,
+										   					   IMG_FRAGMENT),
+										   		 mgr->getFont(  TEXT_FONT),
+										   		 mgr->getShader(TEXT_VERTEX,
+										                       TEXT_FRAGMENT));
 		fullscreen->transform().setAnchor(UI::EAnchor::MIDLEFT);
 		fullscreen->transform().setAnchoredPosition({100, 125, 0});
 		fullscreen->setWidth(150);
@@ -335,12 +335,12 @@ namespace Game
 									res2->disableUpdate(true);
 								});
 
-		UI::Button* windowed = new UI::Button(mgr->getTexture("./resources/button.png"),
-										   		 mgr->getShader("./resources/Shaders/image.vs",
-										   					   "./resources/Shaders/image.fs"),
-										   		 mgr->getFont(  "./resources/ProductSans-Medium.ttf"),
-										   		 mgr->getShader("./resources/Shaders/text.vsh",
-										                       "./resources/Shaders/text.fsh"));
+		UI::Button* windowed = new UI::Button(mgr->getTexture(BUTTON_IMG),
+										   		 mgr->getShader(IMG_VERTEX,
+										   					   IMG_FRAGMENT),
+										   		 mgr->getFont(  TEXT_FONT),
+										   		 mgr->getShader(TEXT_VERTEX,
+										                       TEXT_FRAGMENT));
 		windowed->transform().setAnchor(UI::EAnchor::MIDLEFT);
 		windowed->transform().setAnchoredPosition({270, 125, 0});
 		windowed->setWidth(150);
@@ -353,12 +353,12 @@ namespace Game
 									res2->disableUpdate(false);
 								});
 
-		UI::Button* back = new UI::Button(mgr->getTexture("./resources/button.png"),
-										  mgr->getShader("./resources/Shaders/image.vs",
-										   				 "./resources/Shaders/image.fs"),
-										  mgr->getFont(  "./resources/ProductSans-Medium.ttf"),
-										  mgr->getShader("./resources/Shaders/text.vsh",
-										                 "./resources/Shaders/text.fsh"));
+		UI::Button* back = new UI::Button(mgr->getTexture(BUTTON_IMG),
+										  mgr->getShader(IMG_VERTEX,
+										   				 IMG_FRAGMENT),
+										  mgr->getFont(  TEXT_FONT),
+										  mgr->getShader(TEXT_VERTEX,
+										                 TEXT_FRAGMENT));
 		back->transform().setAnchor(UI::EAnchor::BOTCENTER);
 		back->transform().setAnchoredPosition({0, 70, 0});
 		back->setWidth(200).setHeight(75);
@@ -380,9 +380,9 @@ namespace Game
     {
         (void)game;
         Canvas* HUD { graph.addCanvas() };
-		_weapon = new UI::Image(mgr->getTexture("./resources/outline.png"),
-								mgr->getShader("./resources/Shaders/image.vs",
-													"./resources/Shaders/image.fs"));
+		_weapon = new UI::Image(mgr->getTexture(OUTLINE_IMG),
+								mgr->getShader(IMG_VERTEX,
+													IMG_FRAGMENT));
 		_weapon->setWidth(200);
 		_weapon->setHeight(200);
 		_weapon->transform().setAnchoredPosition(Vec3{ -110.f, 110.f, 0});
@@ -391,9 +391,9 @@ namespace Game
 
 		_lifeBar.init(mgr, HUD);
 
-		_ammoInClip = new UI::Text(mgr->getFont("./resources/ProductSans-Medium.ttf"), 
-							    mgr->getShader("./resources/Shaders/text.vsh", 
-											   "./resources/Shaders/text.fsh"));
+		_ammoInClip = new UI::Text(mgr->getFont(TEXT_FONT), 
+							    mgr->getShader(TEXT_VERTEX, 
+											   TEXT_FRAGMENT));
 		_ammoInClip->transform().setAnchor(UI::EAnchor::BOTRIGHT);
 		_ammoInClip->transform().setAnchoredPosition({-120, 35, 1});
 		_ammoInClip->textAnchor() = UI::EAnchor::BOTRIGHT;
@@ -401,9 +401,9 @@ namespace Game
 		_ammoInClip->text() = L"Ammo here";
 		_ammoInClip->setWidth(100).setHeight(50);
 
-		_ammoTotal = new UI::Text(mgr->getFont("./resources/ProductSans-Medium.ttf"), 
-							    mgr->getShader("./resources/Shaders/text.vsh", 
-											   "./resources/Shaders/text.fsh"));
+		_ammoTotal = new UI::Text(mgr->getFont(TEXT_FONT), 
+							    mgr->getShader(TEXT_VERTEX, 
+											   TEXT_FRAGMENT));
 		_ammoTotal->transform().setAnchor(UI::EAnchor::BOTRIGHT);
 		_ammoTotal->transform().setAnchoredPosition({-60, 35, 1});
 		_ammoTotal->textAnchor() = UI::EAnchor::BOTRIGHT;
@@ -411,23 +411,23 @@ namespace Game
 		_ammoTotal->setWidth(100).setHeight(50);
 		
 
-		_enemyLeft = new UI::Text(mgr->getFont("./resources/ProductSans-Medium.ttf"), 
-							      mgr->getShader("./resources/Shaders/text.vsh", 
-											     "./resources/Shaders/text.fsh"));
+		_enemyLeft = new UI::Text(mgr->getFont(TEXT_FONT), 
+							      mgr->getShader(TEXT_VERTEX, 
+											     TEXT_FRAGMENT));
 		_enemyLeft->transform().setAnchor(UI::EAnchor::TOPRIGHT);
 		_enemyLeft->transform().setAnchoredPosition({-120, -45, 1});
 		_enemyLeft->textAnchor() = UI::EAnchor::TOPRIGHT;
 		_enemyLeft->text() = L"Enemies left :";
 		_enemyLeft->setWidth(200).setHeight(50);
 
-		UI::Image* cross = new Image(mgr->getTexture("./resources/cross.png"),
-									mgr->getShader("./resources/Shaders/image.vs",
-													"./resources/Shaders/image.fs"));
+		UI::Image* cross = new Image(mgr->getTexture(CROSS_IMG),
+									mgr->getShader(IMG_VERTEX,
+													IMG_FRAGMENT));
 		cross->setWidth(30).setHeight(30);
 
-		_medkit = new Image(mgr->getTexture("./resources/Items/medkit.png"),
-								  mgr->getShader( "./resources/Shaders/image.vs",
-												  "./resources/Shaders/image.fs"));
+		_medkit = new Image(mgr->getTexture(MEDKIT_IMG),
+								  mgr->getShader( IMG_VERTEX,
+												  IMG_FRAGMENT));
 		_medkit->setWidth(60).setHeight(60);
 		_medkit->transform().setAnchor(UI::EAnchor::TOPLEFT);
 		_medkit->transform().setAnchoredPosition({40, -110, 0.f});

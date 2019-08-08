@@ -3,6 +3,10 @@
 
 #include "Vec2.h"
 
+#ifdef _WIN32
+typedef unsigned int uint;
+#endif
+
 namespace Game::Inputs
 {
     #pragma region Typedefs

@@ -25,8 +25,13 @@ typedef unsigned int uint;
 #include "LevelManager.h"
 #include "PickableItem.h"
 
-#define PATH_VERTEX "resources/Shaders/model3D.vs"
-#define PATH_FRAGMENT "resources/Shaders/model3D.fs"
+#ifdef _WIN32
+	#define PATH_VERTEX ".\\resources\\Shaders\\model3D.vs"
+	#define PATH_FRAGMENT ".\\resources\\Shaders\\model3D.fs"
+#elif defined(__linux__)
+	#define PATH_VERTEX "./resources/Shaders/model3D.vs"
+	#define PATH_FRAGMENT "./resources/Shaders/model3D.fs"
+#endif
 
 #define BASE_TIME_SCALE 	1.0f
 #define PHYSIC_COOLDOWN_MAX 0.02f

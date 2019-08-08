@@ -1,6 +1,8 @@
 // OpenGL.cpp : Defines the entry point for the console application.
 #include "Window.h"
 
+#undef main SDL_main
+
 int main()
 {
 	Game::Window window;

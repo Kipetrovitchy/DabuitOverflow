@@ -1,4 +1,5 @@
 #include "Item.h"
+#include <limits.h>
 
 namespace Game::Items
 {
@@ -7,7 +8,7 @@ namespace Game::Items
             _type       {ItemType::NONE},
             _name       {"Item"},
             _texture    { nullptr },
-            _stackMax   {__UINT8_MAX__},
+            _stackMax   {UINT8_MAX},
             _currStack  {0},
             _weight     {0}
         {}

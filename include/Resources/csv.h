@@ -449,8 +449,8 @@ namespace io{
 
                         ++file_line;
 
-                        assert(data_begin < data_end);
-                        assert(data_end <= block_len*2);
+                        //assert(data_begin < data_end);
+                        //assert(data_end <= block_len*2);
 
                         if(data_begin >= block_len){
                                 std::memcpy(buffer.get(), buffer.get()+block_len, block_len);
@@ -847,7 +847,7 @@ namespace io{
                 void chop_next_column(
                         char*&line, char*&col_begin, char*&col_end
                 ){
-                        assert(line != nullptr);
+                        //assert(line != nullptr);
 
                         col_begin = line;
                         // the col_begin + (... - col_begin) removes the constness
