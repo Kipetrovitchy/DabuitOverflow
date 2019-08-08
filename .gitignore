@@ -8,3 +8,5 @@
 *.exe
 *.tlog
 DabuitOverflow/Release/resources
+*.iobj
+*.ipdb

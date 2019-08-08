@@ -62,7 +62,7 @@ namespace Resources
     Canvas& Canvas::render(const Mat& viewProj, Vec3 camPos) noexcept
     {
         std::list<BaseUIComponent*> opaques;
-        std::map<float, BaseUIComponent*> translucents;
+        std::multimap<float, BaseUIComponent*> translucents;
         for (auto it = _children.begin(); it != _children.end(); ++it)
         {
             if (*it)

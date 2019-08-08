@@ -14,7 +14,9 @@ namespace UI
         _textAnchor { EAnchor::BOTLEFT},
         _text { L"Text" },
         _font { nullptr }
-    {}
+    {
+        _isOpaque = false;
+    }
 
     Text::Text(const Text& t) noexcept :
         BaseUIComponent(t),

@@ -59,7 +59,7 @@ namespace UI
             virtual BaseUIComponent& render(Mat viewProj) noexcept;
             BaseUIComponent& sortPreRender(Vec3 camPos, Vec3 parentPos, 
                                            std::list<BaseUIComponent*>& opaques,
-                                           std::map<float, BaseUIComponent*>& translucents) noexcept;
+                                           std::multimap<float, BaseUIComponent*>& translucents) noexcept;
             #pragma endregion
 
             #pragma region Accessors

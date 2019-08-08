@@ -79,7 +79,7 @@ namespace UI
         return *this;
     }
     BaseUIComponent& BaseUIComponent::sortPreRender(Vec3 camPos, Vec3 parentPos, 
-    std::list<BaseUIComponent*>& opaques, std::map<float, BaseUIComponent*>& translucents) noexcept
+    std::list<BaseUIComponent*>& opaques, std::multimap<float, BaseUIComponent*>& translucents) noexcept
     {
         if (!_enabled)
             return *this;

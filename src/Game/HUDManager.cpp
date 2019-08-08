@@ -164,9 +164,9 @@ namespace Game
 		quit->text()->update();
 		quit->addListener([g = game]() { g->quit(); });
 
-		mainMenu->addChild(options);
 		mainMenu->addChild(title);
 		mainMenu->addChild(newGame);
+		mainMenu->addChild(options);
 		mainMenu->addChild(_loadGame);
 		mainMenu->addChild(quit);
 
